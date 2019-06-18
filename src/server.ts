@@ -1,15 +1,13 @@
-import {createServer} from 'http';
-import {app} from './app';
-import {sequelize} from './sequelize';
+import { createServer } from 'http'
+import { app } from './app'
+import Sequelize  from './sequelize'
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000
 
-(async () => {
-  await sequelize.sync({force: true});
+;(async () => {
+  await Sequelize.sync({ force: false })
 
-  createServer(app)
-    .listen(
-      port,
-      () => console.info(`Server running on port ${port}`)
-    );
-})();
+  createServer(app).listen(port, () =>
+    console.info(`Server running on port ${port}`)
+  )
+})()

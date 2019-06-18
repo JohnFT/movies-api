@@ -5,12 +5,12 @@ import {
   PrimaryKey,
   AutoIncrement,
   DataType,
-  HasMany
+  Unique
 } from 'sequelize-typescript'
-import Stock from './stock'
+
 
 @Table
-export default class Movie extends Model<Movie> {
+export default class Account extends Model<Account> {
   @PrimaryKey
   @AutoIncrement
   @Column(DataType.INTEGER)
@@ -19,30 +19,22 @@ export default class Movie extends Model<Movie> {
   @Column(DataType.STRING)
   name!: string
 
-  @Column(DataType.STRING(1000))
-  description!: string
+  @Unique
+  @Column(DataType.STRING)
+  username!: string
 
   @Column(DataType.STRING)
-  gender!: string
-
-  @Column(DataType.STRING)
-  director!: string
-
-  @Column(DataType.INTEGER)
-  stars!: number
-
-  @Column(DataType.INTEGER)
-  time!: number
+  password!: string
 
   @Column(DataType.STRING)
   avatar!: string
+
+  @Column(DataType.INTEGER)
+  state!: number
 
   @Column(DataType.STRING)
   background!: string
 
   @Column(DataType.INTEGER)
-  price!: number
-
-  @HasMany(() => Stock, 'movieId')
-  stock!: Stock
+  rol!: number
 }

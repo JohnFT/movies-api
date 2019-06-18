@@ -6,15 +6,19 @@
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
+    "outDir": "dist",
+    "rootDirs": ["src"],
     "noUnusedLocals": true,
     "sourceMap": true,
     "declaration": false,
     "pretty": true,
     "strictNullChecks": true,
-    "strictPropertyInitialization": true
+    "strictPropertyInitialization": true,
+    "esModuleInterop": false,
+    "skipLibCheck": true
   },
   "include": [
-    "lib/**/*.ts",
+    "src/**/*.ts",
     "index.ts"
   ],
   "exclude": [
