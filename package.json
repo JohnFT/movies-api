@@ -4,7 +4,7 @@
   "description": "Api para alquilar peliuculas",
   "main": "index.js",
   "scripts": {
-    "clean": "rimraf dist/*",    
+    "clean": "rimraf dist/*",
     "start": "node dist/index.js",
     "build:dev": "npm-run-all clean tsc",
     "tsc": "tsc",
