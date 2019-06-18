@@ -1,0 +1,66 @@
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const sequelize_typescript_1 = require("sequelize-typescript");
+const stock_1 = require("./stock");
+const account_1 = require("./account");
+let Rental = class Rental extends sequelize_typescript_1.Model {
+};
+__decorate([
+    sequelize_typescript_1.PrimaryKey,
+    sequelize_typescript_1.AutoIncrement,
+    sequelize_typescript_1.Column(sequelize_typescript_1.DataType.INTEGER),
+    __metadata("design:type", Number)
+], Rental.prototype, "id", void 0);
+__decorate([
+    sequelize_typescript_1.ForeignKey(() => stock_1.default),
+    sequelize_typescript_1.Column,
+    __metadata("design:type", Number)
+], Rental.prototype, "stockId", void 0);
+__decorate([
+    sequelize_typescript_1.BelongsTo(() => stock_1.default),
+    __metadata("design:type", stock_1.default)
+], Rental.prototype, "stock", void 0);
+__decorate([
+    sequelize_typescript_1.Column(sequelize_typescript_1.DataType.INTEGER),
+    __metadata("design:type", Number)
+], Rental.prototype, "days", void 0);
+__decorate([
+    sequelize_typescript_1.CreatedAt,
+    sequelize_typescript_1.Column(sequelize_typescript_1.DataType.DATE),
+    __metadata("design:type", Date)
+], Rental.prototype, "date", void 0);
+__decorate([
+    sequelize_typescript_1.Column(sequelize_typescript_1.DataType.DATE),
+    __metadata("design:type", Date)
+], Rental.prototype, "initDate", void 0);
+__decorate([
+    sequelize_typescript_1.Column(sequelize_typescript_1.DataType.DATE),
+    __metadata("design:type", Date)
+], Rental.prototype, "deliveryDate", void 0);
+__decorate([
+    sequelize_typescript_1.Column(sequelize_typescript_1.DataType.INTEGER),
+    __metadata("design:type", Number)
+], Rental.prototype, "state", void 0);
+__decorate([
+    sequelize_typescript_1.Column(sequelize_typescript_1.DataType.INTEGER),
+    __metadata("design:type", Number)
+], Rental.prototype, "price", void 0);
+__decorate([
+    sequelize_typescript_1.ForeignKey(() => account_1.default),
+    sequelize_typescript_1.Column(sequelize_typescript_1.DataType.STRING),
+    __metadata("design:type", account_1.default)
+], Rental.prototype, "account", void 0);
+Rental = __decorate([
+    sequelize_typescript_1.Table
+], Rental);
+exports.default = Rental;
+//# sourceMappingURL=rental.js.map
